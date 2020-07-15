@@ -39,7 +39,7 @@ module.exports = async (client, message) => {
 	if (guild_setup == false && command !== "bind" && command !== "verify"){
 		var badEmbed = new Discord.MessageEmbed()
 			.setColor(0xf54242)
-			.setDescription(`Sorry ${message.author}, but this guild hasn't been setup yet!\nSetup - \`!bind groupID\`\n\n**[If you have any questions, feel free to click here](https://discord.gg/fHpfmy5)**`)
+			.setDescription(`Sorry ${message.author}, but this guild hasn't been setup yet!\nSetup - \`!bind groupID\`\n\n**[If you have any questions, feel free to click here](https://discord.gg/TYu6EvK)**`)
 		return message.channel.send(badEmbed)
 	}
 
