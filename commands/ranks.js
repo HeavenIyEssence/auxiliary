@@ -24,7 +24,7 @@ exports.run = async (client, message, args, groupID) => {
             ranksEmbed.addField(`${roles[x].Name}`, `ID: **\`${roles[x].Rank}\`**\n${client.config.experience_name}: **\`${response.data.xp}\`**`, true)
           }
         }else{
-          ranksEmbed.addField(`${roles[x].Name}`, `ID: **\`${roles[x].Rank}\`**\n${client.config.experience_name}: **[Error](https://www.discord.gg/fHpfmy5)**`, true)
+          ranksEmbed.addField(`${roles[x].Name}`, `ID: **\`${roles[x].Rank}\`**\n${client.config.experience_name}: **[Error](https://www.discord.gg/TYu6EvK)**`, true)
         }
       })
   }
