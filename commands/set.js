@@ -15,10 +15,10 @@ exports.run = async (client, message, args, groupID) => {
 	if (!message.member.roles.cache.some(role => role.name === `${client.config.config.high_command_role}`)) {
 		return message.channel.send(`Sorry ${message.author}, but only users with the **${client.config.high_command_role}** role can run that command!`);
 	};
-	
+
 	// officer id
 	var officer_rblx_id;
-	
+
 	// boolean for user id fetcher checker
 	var flag = true;
 
@@ -42,15 +42,15 @@ exports.run = async (client, message, args, groupID) => {
 		var badEmbed = new Discord.MessageEmbed()
 			.setColor(0xf54242)
 			.setDescription(`You must verify yourself before you can run the **set** command!`)
-		return message.reply(badEmbed).then(message => message.delete({timeout: 5000, reason: "delete"}));
+		return message.reply(badEmbed);
 	}
-	
+
 	// make sure number is a number and is between the specified numberss
 	if (!args[1] || isNaN(Number(args[1])) || Number(args[1]) < 0){
 		var badEmbed = new Discord.MessageEmbed()
 			.setColor(0xf54242)
 			.setDescription(`You must specify a number (0-∞) for me to add ${client.config.experience_name} points to the specified users\n\n**${client.config.prefix}set # username1, username2, etc**`)
-		return message.reply(badEmbed).then(message => message.delete({timeout: 5000, reason: "delete"}));
+		return message.reply(badEmbed);
 	};
 
 	// if no usernames present, error!
@@ -58,12 +58,12 @@ exports.run = async (client, message, args, groupID) => {
 		var badEmbed = new Discord.MessageEmbed()
 			.setColor(0xf54242)
 			.setDescription(`Please provide the ROBLOX username that you want to add ${client.config.experience_name} to\n\n**${client.config.prefix}set # username1, username2, etc**`)
-		return message.reply(badEmbed).then(message => message.delete({timeout: 5000, reason: "delete"}));
+		return message.reply(badEmbed);
 	};
 
 	// collect usernames into an array
 	var userArray = message.content.slice(message.content.indexOf(message.content.split(" ")[2])).split(',');
-	
+
 	// remove duplicates
 	userArray = Array.from(new Set(userArray));
 
@@ -112,7 +112,7 @@ exports.run = async (client, message, args, groupID) => {
 			message.channel.send(badEmbed);
 			continue;
 		};
-	
+
 		// get total points so far from profile
 		var current_points;
 
@@ -128,7 +128,7 @@ exports.run = async (client, message, args, groupID) => {
 
 		// new total points added together
 		var new_total_points = setPoints;
-	
+
 		if (flag){
 			db.ref(`guilds/${message.guild.id}/users/${rblx_id}`).set({
 			  xp: Number(new_total_points)
@@ -150,7 +150,7 @@ exports.run = async (client, message, args, groupID) => {
 				.setColor(0x28F6FF)
 				.setDescription(`Updated ${rblx_username}'s profile`)
 			await message.channel.send(doneEmbed)
-			
+
 		}
 
 		var flag = true;
@@ -210,7 +210,7 @@ exports.run = async (client, message, args, groupID) => {
 							.setImage("https://media.giphy.com/media/ehhuGD0nByYxO/giphy.gif")
 							.setDescription(`**:confetti_ball: \`${rblx_username}\` has been promoted to \`${next_rolesetName}\`! :confetti_ball:**`)
 
-						await message.channel.send(promotionEmbed).then(message => message.delete({timeout: 2500, reason: "delete annoying promotion image embed"}));
+						await message.channel.send(promotionEmbed);
 
 					}else{
 						flag = false;
@@ -281,7 +281,7 @@ exports.run = async (client, message, args, groupID) => {
 							.setImage("https://media.giphy.com/media/qQdL532ZANbjy/giphy.gif")
 							.setDescription(`**:confetti_ball: \`${rblx_username}\` has been demoted to \`${previous_rolesetName}\`! :confetti_ball:**`)
 
-						await message.channel.send(promotionEmbed).then(message => message.delete({ timeout: 5000, reason: "delete annoying promotion image embed" }));
+						await message.channel.send(promotionEmbed);
 
 					} else {
 						flag = false;
