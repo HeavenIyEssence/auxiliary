@@ -26,7 +26,7 @@ exports.run = async (client, message, args, groupID) => {
                 }
 			}
 			return message.channel.send(blacklistEmbed)
-    
+
 	} else if (args[1].toLowerCase() == "add" || args[1].toLowerCase() == "remove") {
 		// only users with the specified high command role can run this variation
 		if (!message.member.roles.cache.some(role => role.name === `${client.config.high_command_role}`)){
@@ -45,7 +45,7 @@ exports.run = async (client, message, args, groupID) => {
 			for (var key in args) {
 				if (key > 2) {
 					descriptionSet += (args[key] + " ")
-				}	
+				}
 			}
 
 			var rblx_username
@@ -109,7 +109,7 @@ exports.run = async (client, message, args, groupID) => {
 					.setDescription(`Sorry ${message.author}, can you please provide me with a real ROBLOX username!`)
 				return message.channel.send(badEmbed)
 			}
-			
+
 			await axios.get(`${client.config.firebase_url}/guilds/${message.guild.id}/blacklist/${rblx_id}.json`)
 			.then(function (response) {
 				if (response.data == null) {
@@ -128,9 +128,9 @@ exports.run = async (client, message, args, groupID) => {
 				}
 			})
 
-			
+
 		}
-		
+
 	}
 };
 
