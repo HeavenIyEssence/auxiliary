@@ -13,12 +13,12 @@ exports.run = async (client, message, args, groupID) => {
 
 	// only users with the specified officer role can run the command
 	if (!message.member.roles.cache.some(role => role.name === `${client.config.officer_role}`)){
-		return message.channel.send(`Sorry ${message.author}, but only users with the **${client.config.officer_role}** role can run that command!`).then(message => message.delete({timeout: 5000, reason: "delete"}));
+		return message.channel.send(`Sorry ${message.author}, but only users with the **${client.config.officer_role}** role can run that command!`);
 	};
 
 	// officer id
 	var officer_rblx_id;
-	
+
 	// boolean for user id fetcher checker
 	var flag = true;
 
@@ -40,7 +40,7 @@ exports.run = async (client, message, args, groupID) => {
 
 	// collect usernames into an array
 	var userArray = message.content.slice(message.content.indexOf(message.content.split(" ")[2])).split(',');
-	
+
 	// remove duplicates
 	userArray = Array.from(new Set(userArray));
 
@@ -115,7 +115,7 @@ exports.run = async (client, message, args, groupID) => {
 
 		// new total points added together
 		var new_total_points = current_points + addPoints;
-	
+
 		if (flag && blacklisted != true){
 			db.ref(`guilds/${message.guild.id}/users/${rblx_id}`).set({
 			  xp: Number(new_total_points)
@@ -135,7 +135,7 @@ exports.run = async (client, message, args, groupID) => {
 				.setColor(0x28F6FF)
 				.setDescription(`Updated ${rblx_username}'s profile`)
 			await message.channel.send(doneEmbed)
-			
+
 		}
 
 		var flag = true;
