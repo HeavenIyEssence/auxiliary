@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
                 }
             }
         })
-    
+
     // sort the map
     var leaderboard_sorted = new Map([... leaderboard_unsorted.entries()].sort((a, b) => b[1] - a[1]));
 
@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
             group_name = response.data.guild_settings.group_name;
             group_id = response.data.guild_settings.group_id;
         });
-    
+
     // if size is 0, :{
     if (leaderboard_unsorted.size == 0){
         leaderboard_description = `**There are currently no user profiles stored in my database!**`
@@ -54,13 +54,13 @@ exports.run = async (client, message, args) => {
         }
     }
 
-    
+
     // embed produced
     var leaderboardEmbed = new Discord.MessageEmbed()
         .setColor(0xFF8C00)
         .setTitle(`__Top 5 Users__`)
         .setDescription(`${leaderboard_description}`)
-        
+
     return message.channel.send(leaderboardEmbed);
 
 };
