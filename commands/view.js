@@ -46,7 +46,7 @@ function progressBar(percentAge) {
 exports.run = async (client, message, args, groupID) => {
   // need username
   var usernameArgument;
-  
+
   if (!args[1]) {
 
    // fetch roblox account instead via Rover database
@@ -94,7 +94,7 @@ exports.run = async (client, message, args, groupID) => {
     return message.reply(infoEmbed)
   } else {
     const sentMessage = await message.channel.send(`Fetching data...`)
-      
+
 
     // get data about user
     var current_xp = 0;
@@ -151,7 +151,7 @@ exports.run = async (client, message, args, groupID) => {
 
     // error, why?  bc stupid error!
     if (error == true) {
-      sentMessage.edit("", `This error should **never** appear.  Please contact a staff member @ https://discord.gg/7PYHqEP ASAP (view.js)`)
+      sentMessage.edit("", `This error should **never** appear.  Please contact a staff member @ https://discord.gg/TYu6EvK ASAP (view.js)`)
     }
 
     // all roles
