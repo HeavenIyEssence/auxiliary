@@ -4,7 +4,7 @@ const admin = require("firebase-admin");
 
 exports.run = async (client, message, args) => {
 
-	if (message.channel.type === "dm") return message.channel.send(`That command can't be used through direct messages!`).then(message => message.delete({timeout: 5000, reason: "delete"}));
+	if (message.channel.type === "dm") return message.channel.send(`That command can't be used through direct messages!`);
 
 	// boolean to stop this all
 	var flag = false;
@@ -49,7 +49,7 @@ exports.run = async (client, message, args) => {
 			var badEmbed = new Discord.MessageEmbed()
 				.setColor(0xf54242)
 				.setDescription(`Sorry ${message.author}, can you please provide me with a real ROBLOX username!`)
-			return message.channel.send(badEmbed).then(message => message.delete({timeout: 5000, reason: "delete"}));
+			return message.channel.send(badEmbed);
 		}
 
 		await message.channel.send(`**Check your DM's!**`);
@@ -66,7 +66,7 @@ exports.run = async (client, message, args) => {
 
 		const location = await message.author.send(verifyEmbed)
 			.then(msg => msg.channel).catch(() => {
-				return message.channel.send(`Sorry ${message.author}, but I couldn't direct message you!`).then(message => message.delete({timeout: 5000, reason: "delete"}));
+				return message.channel.send(`Sorry ${message.author}, but I couldn't direct message you!`);
 			});
 
 		// collection
@@ -74,14 +74,14 @@ exports.run = async (client, message, args) => {
 		const collected = await location.awaitMessages(response => message.author === response.author, timeCollectionThing).catch(() => null);
 
 		if (!collected){
-			return message.author.send(`Sorry ${message.author}, but I've waited too long for a response.\n\n**Please try again later when you have sufficient time to verify your ROBLOX account with me.**`).then(message => message.delete({timeout: 5000, reason: "delete"}));
+			return message.author.send(`Sorry ${message.author}, but I've waited too long for a response.\n\n**Please try again later when you have sufficient time to verify your ROBLOX account with me.**`);
 		}
 
 		// get their answer
 		var responseArray = collected.map(m => m.content);
 
 		if (responseArray[0].toLowerCase() !== "done"){
-			return message.author.send(`Sorry ${message.author}, but that was an invalid response.\n**Expected: \`done\`**`).then(message => message.delete({timeout: 5000, reason: "delete"}));
+			return message.author.send(`Sorry ${message.author}, but that was an invalid response.\n**Expected: \`done\`**`);
 		}
 
 		var valid = false;
