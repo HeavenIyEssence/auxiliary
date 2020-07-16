@@ -1,18 +1,18 @@
 {
 	"prefix": "!",
 	
-	"owner_id": "114081086065213443",
+	"owner_id": "671900958653022210",
 
 	"bot_token": "bot token",
 	"rblx_cookie": "rblx cookie",
-	"firebase_url": "https://auxiliary-f933f.firebaseio.com",
-	"bot_picture": "https://t5.rbxcdn.com/09fdcb3be290857df6e46b2fd7edf90e",
+	"firebase_url": "https://ravolance.firebaseio.com",
+	"bot_picture": "https://t3.rbxcdn.com/435f5f2d1d39395cd1fa43ad811f52cd",
 
 	"officer_role": "Officer",
 	"high_command_role": "High Command",
 
 	"experience_name": "XP",
-	"max_experiencePoints": 5,
+	"max_experiencePoints": 25,
 	"demoteUsers": true
 
 }
