@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nishi7409/Auxiliary.git"
+    "url": "git+https://github.com/HeavenIyEssence/Auxiliary.git"
   },
   "keywords": [
     "ROBLOX",
@@ -26,7 +26,7 @@
   "author": "Nishant Srivastava",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nishi7409/Auxiliary/issues"
+    "url": "https://github.com/HeavenIyEssence/Auxiliary/issues"
   },
   "homepage": "https://github.com/nishi7409/Auxiliary#readme"
 }
